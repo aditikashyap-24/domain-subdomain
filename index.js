@@ -4,14 +4,15 @@ const bodyParser = require('body-parser')
 //Initialize express app
 const app = express();
 
-const Domain = require ('./model/models');
-const Subdomain = require ('./model/models');
+const Domain = require('./model/models')
+const Subdomain = require('./model/models');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 
-mongoose.connect('mongodb+srv://aditikashyap:C8BulNyeCYnGbeQS@node.0ugnzoe.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://aditikashyap:C8BulNyeCYnGbeQS@nodetuts.0ugnzoe.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
     console.log('connected to db')
     })
@@ -25,62 +26,60 @@ mongoose.connect('mongodb+srv://aditikashyap:C8BulNyeCYnGbeQS@node.0ugnzoe.mongo
 
     app.post('/', (req, res) => {
 
-        domainName = req.body.domainName,
-        subdomain = req.body.subdomain,
-        subdomain_name = req.body.subdomain_name,
-        info_subdomain = req.body.info_subdomain,
-        companies_subdomain = req.body.companies_subdomain,
-        roles_subdomain = req.body.roles_subdomain,
-        day_in_the_life_subdomain = req.body.day_in_the_life_subdomain,
-        competitions_subdomain = req.body.competitions_subdomain,
-        internships_subdomain = req.body.internships_subdomain,
-        research_opportunities_subdomain = req.body.research_opportunities_subdomain,        
-        info_domain = req.body.info_domain,
-        companies_domain = req.body.companies_domain,
-        roles_domain = req.body.roles_domain,
-        day_in_the_life_domain = req.body.day_in_the_life_domain,
-        competitions_domain = req.body.competitions_domain,
-        internships_domain = req.body.internships_domain,
-        research_opportunities_domain = req.body.research_opportunities_domain;
+       let domainName = req.body.domainName;
+       let  info_domain =req.body.info_domain;
+       let companies_domain = req.body.companies_domain;
+       let roles_domain = req.body.roles_domain;
+       let day_in_the_life_domain = req.body.day_in_the_life_domain;
+       let competitions_domain =  req.body.competitions_domain;
+       let  internship_domain = req.body.internship_domain;
+        let research_opportunities_domain = req.body.research_opportunities_domain;
 
-        let newSubdomain =  new Subdomain({
-                subdomain_name : subdomain_name,
-                info_subdomain : info_subdomain,
-               companies_subdomain : companies_subdomain,
-               roles_subdomain : roles_subdomain,
-               day_in_the_life_subdomain : day_in_the_life_subdomain,
-               competitions_subdomain : competitions_subdomain,
-               internships_subdomain : internships_subdomain,
-               research_opportunities_subdomain : research_opportunities_subdomain
-        });
 
         let newDomain = new Domain({
-         domainName: domainName,
-         subdomain : subdomain,
-         info_domain : info_domain,
-         companies_domain : companies_domain,
-         roles_domain : roles_domain,
-         day_in_the_life_domain : day_in_the_life_domain,
-         competitions_domain : competitions_domain,
-         internships_domain : internships_domain,
-         research_opportunities_domain : research_opportunities_domain
-        })
+            domainName: domainName,
+            info_domain: info_domain,
+           companies_domain : companies_domain,
+           roles_domain : roles_domain,
+           day_in_the_life_domain : day_in_the_life_domain,
+           competitions_domain : competitions_domain,
+           internship_domain : internship_domain,
+           research_opportunities_domain :research_opportunities_domain
+           })
+           
+           newDomain.save()
+
+           let subdomainName =  req.body.subdomainName;
+           let info_subdomain = req.body.info_subdomain;
+           let companies_subdomain = req.body.companies_subdomain;
+           let roles_subdomain = req.body.roles_subdomain;
+           let day_in_the_life_subdomain = req.body.day_in_the_life_subdomain;
+           let competitions_subdomain = req.body.competitions_subdomain;
+           let internship_subdomain = req.body.internship_subdomain;
+           let research_opportunities_subdomain = req.body.research_opportunities_subdomain
+           
+
+       let newSubdomain = new Subdomain({
+         subdomainName : subdomainName,
+         info_subdomain : info_subdomain,
+         companies_subdomain : companies_subdomain,
+         roles_subdomain : roles_subdomain,
+         day_in_the_life_subdomain : day_in_the_life_subdomain,
+         competitions_subdomain : competitions_subdomain,
+          internship_subdomain : internship_subdomain,
+         research_opportunities_subdomain : research_opportunities_subdomain
+         })
 
         newSubdomain.save()
-        // .then((subdomain) => {
-        //     res.send(subdomain)
-        // })
-        // .catch((err) => {
-        //     console.log(err)
-        // })
 
-        newDomain.save()
-       .then((domain) => {
-         res.send(domain)
-        })
-        .catch((err) => {
-         console.log(err)
-        })
+        .then((Domain) => {
+            res.send(Domain)
+           })
+           .catch((err) => {
+            console.log(err)
+           })
+
+            
        });
 
 
