@@ -20,11 +20,11 @@ mongoose.connect('mongodb+srv://aditikashyap:C8BulNyeCYnGbeQS@nodetuts.0ugnzoe.m
  console.log(error)
     });
 
-    db = mongoose.Collection;
-
     // Creating a new book
 
     app.post('/', (req, res) => {
+        
+        console.log(req.body);
 
             let domainName = req.body.domainName;
             let  info_domain =req.body.info_domain;
