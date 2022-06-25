@@ -26,18 +26,30 @@ mongoose.connect('mongodb+srv://aditikashyap:C8BulNyeCYnGbeQS@nodetuts.0ugnzoe.m
 
     app.post('/', (req, res) => {
 
-       let domainName = req.body.domainName;
-       let  info_domain =req.body.info_domain;
-       let companies_domain = req.body.companies_domain;
-       let roles_domain = req.body.roles_domain;
-       let day_in_the_life_domain = req.body.day_in_the_life_domain;
-       let competitions_domain =  req.body.competitions_domain;
-       let  internship_domain = req.body.internship_domain;
-        let research_opportunities_domain = req.body.research_opportunities_domain;
+            let domainName = req.body.domainName;
+            let  info_domain =req.body.info_domain;
+            let companies_domain = req.body.companies_domain;
+            let roles_domain = req.body.roles_domain;
+            let day_in_the_life_domain = req.body.day_in_the_life_domain;
+            let competitions_domain =  req.body.competitions_domain;
+            let  internship_domain = req.body.internship_domain;
+            let research_opportunities_domain = req.body.research_opportunities_domain;
+            let subdomainName =  req.body.subdomainName;
+            let info_subdomain = req.body.info_subdomain;
+            let companies_subdomain = req.body.companies_subdomain;
+            let roles_subdomain = req.body.roles_subdomain;
+            let day_in_the_life_subdomain = req.body.day_in_the_life_subdomain;
+            let competitions_subdomain = req.body.competitions_subdomain;
+            let internship_subdomain = req.body.internship_subdomain;
+            let research_opportunities_subdomain = req.body.research_opportunities_subdomain;
+
+    
+    
 
 
         let newDomain = new Domain({
             domainName: domainName,
+            subdomain : {subdomainName, info_subdomain, companies_subdomain, roles_subdomain, day_in_the_life_subdomain, competitions_subdomain, internship_subdomain, research_opportunities_subdomain},
             info_domain: info_domain,
            companies_domain : companies_domain,
            roles_domain : roles_domain,
@@ -49,28 +61,24 @@ mongoose.connect('mongodb+srv://aditikashyap:C8BulNyeCYnGbeQS@nodetuts.0ugnzoe.m
            
            newDomain.save()
 
-           let subdomainName =  req.body.subdomainName;
-           let info_subdomain = req.body.info_subdomain;
-           let companies_subdomain = req.body.companies_subdomain;
-           let roles_subdomain = req.body.roles_subdomain;
-           let day_in_the_life_subdomain = req.body.day_in_the_life_subdomain;
-           let competitions_subdomain = req.body.competitions_subdomain;
-           let internship_subdomain = req.body.internship_subdomain;
-           let research_opportunities_subdomain = req.body.research_opportunities_subdomain
+        //    let subdomain;
            
 
-       let newSubdomain = new Subdomain({
-         subdomainName : subdomainName,
-         info_subdomain : info_subdomain,
-         companies_subdomain : companies_subdomain,
-         roles_subdomain : roles_subdomain,
-         day_in_the_life_subdomain : day_in_the_life_subdomain,
-         competitions_subdomain : competitions_subdomain,
-          internship_subdomain : internship_subdomain,
-         research_opportunities_subdomain : research_opportunities_subdomain
-         })
+        // let {subdomainName, info_subdomain, companies_subdomain, roles_subdomain, day_in_the_life_subdomain, competitions_subdomain, internship_subdomain, research_opportunities_subdomain} = subdomain;
 
-        newSubdomain.save()
+
+    //    let newSubdomain = new Subdomain({
+    //      subdomainName : subdomainName,
+    //      info_subdomain : info_subdomain,
+    //      companies_subdomain : companies_subdomain,
+    //      roles_subdomain : roles_subdomain,
+    //      day_in_the_life_subdomain : day_in_the_life_subdomain,
+    //      competitions_subdomain : competitions_subdomain,
+    //       internship_subdomain : internship_subdomain,
+    //      research_opportunities_subdomain : research_opportunities_subdomain
+    //      })
+
+    //     newSubdomain.save()
 
         .then((Domain) => {
             res.send(Domain)
