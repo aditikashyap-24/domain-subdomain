@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Schema for AddressBook
-const subdomainSchema = mongoose.Schema({
+const subdomainSchema = new mongoose.Schema({
     subdomainName :{
         type : String,
         required: false
@@ -36,7 +36,7 @@ const subdomainSchema = mongoose.Schema({
      }
  
 });
-const domainSchema = mongoose.Schema({
+const domainSchema = new mongoose.Schema({
     domainName: {
      type: String,
      required: true,
