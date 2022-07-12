@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-mongoose.connect('mongodb+srv://aditikashyap:C8BulNyeCYnGbeQS@nodetuts.0ugnzoe.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://mplus:P9GY8scXb2Qwzvld@mvp.ewjty.mongodb.net/stg-mvp?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('connected to db')
     })
@@ -27,7 +27,7 @@ app.post('/', (req, res) => {
     let companies_domain = req.body.companies_domain;
     let roles_domain = req.body.roles_domain;
     let day_in_the_life_domain = req.body.day_in_the_life_domain;
-    let competitions_domain = req.body.competitions_domain;
+    let skills_domain = req.body.skills_domain;
     let internship_domain = req.body.internship_domain;
     let research_opportunities_domain = req.body.research_opportunities_domain;
     let subdomainName = req.body.subdomainName;
@@ -35,17 +35,17 @@ app.post('/', (req, res) => {
     let companies_subdomain = req.body.companies_subdomain;
     let roles_subdomain = req.body.roles_subdomain;
     let day_in_the_life_subdomain = req.body.day_in_the_life_subdomain;
-    let competitions_subdomain = req.body.competitions_subdomain;
+    let skills_subdomain = req.body.skills_subdomain;
     let internship_subdomain = req.body.internship_subdomain;
     let research_opportunities_subdomain = req.body.research_opportunities_subdomain;
     let newDomain = Domain({
         domainName: domainName,
-        subdomain: { subdomainName, info_subdomain, companies_subdomain, roles_subdomain, day_in_the_life_subdomain, competitions_subdomain, internship_subdomain, research_opportunities_subdomain },
+        subdomain: { subdomainName, info_subdomain, companies_subdomain, roles_subdomain, day_in_the_life_subdomain, skills_subdomain, internship_subdomain, research_opportunities_subdomain },
         info_domain: info_domain,
         companies_domain: companies_domain,
         roles_domain: roles_domain,
         day_in_the_life_domain: day_in_the_life_domain,
-        competitions_domain: competitions_domain,
+        skills_domain: skills_domain,
         internship_domain: internship_domain,
         research_opportunities_domain: research_opportunities_domain
     })
@@ -55,7 +55,7 @@ app.post('/', (req, res) => {
     //    let subdomain;
 
 
-    // let {subdomainName, info_subdomain, companies_subdomain, roles_subdomain, day_in_the_life_subdomain, competitions_subdomain, internship_subdomain, research_opportunities_subdomain} = subdomain;
+    // let {subdomainName, info_subdomain, companies_subdomain, roles_subdomain, day_in_the_life_subdomain, skills_subdomain, internship_subdomain, research_opportunities_subdomain} = subdomain;
 
 
     //    let newSubdomain = new Subdomain({
@@ -64,7 +64,7 @@ app.post('/', (req, res) => {
     //      companies_subdomain : companies_subdomain,
     //      roles_subdomain : roles_subdomain,
     //      day_in_the_life_subdomain : day_in_the_life_subdomain,
-    //      competitions_subdomain : competitions_subdomain,
+    //      skills_subdomain : skills_subdomain,
     //       internship_subdomain : internship_subdomain,
     //      research_opportunities_subdomain : research_opportunities_subdomain
     //      })
