@@ -22,7 +22,7 @@ const subdomainSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    competitions_subdomain: {
+    skills_subdomain: {
         type: String,
         required: false
     },
@@ -62,7 +62,7 @@ const domainSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    competitions_domain: {
+    skills_domain: {
         type: String,
         required: false
     },
